@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+
+{% block content %}
+
+    <h1>Cart page</h1>
+    <hr>
+
+{% endblock %}
+
+
+{% block data %}
+
+    {% for i in cart_list %}
+        {% if i.user.id == user.id %}
+            <h5>{{ i.product.name }}</h5>
+            <img src="{{ i.product.image.url }}" width="300px" alt="">
+            <p>{{ i.product.price }}</p>
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

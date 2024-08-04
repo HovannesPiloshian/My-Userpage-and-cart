@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+    <h1>Index page</h1>
+    <hr>
+
+{% endblock %}
+
+{% block data %}
+<div class="product-container">
+    {% for i in product_list %}
+        <div class="product-item">
+            <h4>{{ i.name }}</h4>
+            <img src="{{ i.image.url }}" width="400px" alt="">
+            <p>{{ i.price }}</p>
+
+            <form action="add_product/" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="prod_id" value="{{ i.id }}" id="">
+                <button type="submit" name="user_id" value="{{ user.id }}">Buy</button>
+            </form>
+
+
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

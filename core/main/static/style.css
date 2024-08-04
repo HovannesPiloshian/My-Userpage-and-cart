@@ -1,0 +1,24 @@
+/* Add background color and center content for the index page */
+.index-page {
+    background-color: #f5f5f5; /* Example background color */
+    text-align: center; /* Center-aligns text and content */
+    padding: 20px; /* Optional: adds padding around the content */
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center-aligns the products */
+}
+
+.product-item {
+    flex: 0 0 calc(33.333% - 10px); /* Three items per row with space between */
+    box-sizing: border-box;
+    margin: 10px; /* Space between items */
+    text-align: left; /* Ensures text within items is left-aligned */
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+}

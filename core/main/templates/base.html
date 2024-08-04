@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header class="header_">
+        {% block content %}{% endblock %}
+
+        <a href="{% url 'index' %}"><button>Home</button></a>
+        <a href="{% url 'cart' %}"><button>Cart</button></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'userpage' %}"><button>User Page</button></a>
+            <a href="{% url 'logout' %}"><button>{{ user.username }} logout</button></a>
+
+        {% else %}
+            <a href="{% url 'login' %}"><button>Login</button></a>
+            <a href="{% url 'register' %}"><button>Register</button></a>
+        {% endif %}
+            <hr>
+    </header>
+
+    {% block data %}{% endblock %}
+
+</body>
+</html>
